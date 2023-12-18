@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  dbCats:
+    image: postgres:15.3
+    restart: always
+    ports:
+      - '5437:5432'
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    container_name: catsapp
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
